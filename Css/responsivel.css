@@ -1,0 +1,155 @@
+/* =========================
+   MEDIA QUERIES RESPONSIVAS
+========================= */
+
+/* Tablets */
+@media screen and (max-width: 992px) {
+
+    nav {
+        padding: 15px 30px;
+    }
+
+    .menu {
+        gap: 20px;
+    }
+
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .home-text {
+        width: 100%;
+    }
+
+    .home-image {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .home-image img {
+        width: 80%;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px 20px;
+    }
+}
+
+
+/* Smartphones */
+@media screen and (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .btn-reserva {
+        width: 100%;
+        text-align: center;
+    }
+
+    .home {
+        padding: 30px 15px;
+    }
+
+    .home-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-text p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .home-image img {
+        width: 100%;
+    }
+
+    .cardapio h2 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .card img {
+        width: 120px;
+    }
+
+    footer h2 {
+        font-size: 2rem;
+    }
+
+    footer p {
+        font-size: 14px;
+    }
+
+    .whatsapp {
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+
+/* Smartphones Pequenos */
+@media screen and (max-width: 480px) {
+
+    .logo {
+        font-size: 1.8rem;
+    }
+
+    .home-text h1 {
+        font-size: 2rem;
+    }
+
+    .home-text p {
+        font-size: 14px;
+    }
+
+    .btn-reserva,
+    .btn-pedir {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .card h3 {
+        font-size: 1.2rem;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 20px 10px;
+    }
+}

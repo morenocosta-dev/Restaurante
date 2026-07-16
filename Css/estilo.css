@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    box-sizing: border-box;
+    padding-left: 0;
+}
+ 
+body{
+    margin: 0;
+     font-family: "Roboto", sans-serif;
+     color: var(--cream);
+     background: var(--black);
+     overflow-x: hidden;
+}
+
+.navbar{
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    background: gray;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+     background:yellow;
+    padding: 10px 25px;
+    color: black;
+    border-radius: 30%;
+    margin-right: 10%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+   button:hover{
+        border: none;
+   color: white;
+   }
+
+.logo h1{
+    flex: 20%;
+    margin-left:10px;
+     font-family: "Lobster", sans-ser;
+     color: yellow;
+}
+
+.logo{
+   
+    color:#180F4A;
+    font-size: 24px;
+    text-align: right;
+}
+
+.menu{
+    flex: 70%;
+    text-align: right;
+    padding: 20px;
+}  
+
+.menu a{
+    color: #180F4A;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 16px;
+}
+.menu a:hover{
+   color: white;
+    border-top: 4px solid #180F4A;
+}
+
+#botao{
+    background:yellow;
+    padding: 10px 25px;
+    color: black;
+    border-radius: 30px;
+    margin-right: 10%;
+    margin-left: 5%;
+}
+
+#botao:hover{
+    border: none;
+   color: yellow;
+   background: white;
+}
+
+.header{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    /*height: 600px;*/
+    background:white;
+    padding-top: 100px;
+}
+
+.headline{
+    flex: 40%;
+    margin-left: 10%;
+    /*border: 1px solid black;*/
+}
+
+.headline h2{
+    font-weight: 900;
+    font-size: 20px;
+    color:#180F4A;
+    padding: 0;
+    margin: o;
+}
+
+.headline p{
+    color: gray;
+    text-align: left;
+}
+
+.contact-btn{
+   background-color: #c8922a;
+   padding: 20px;
+   color: black;
+   text-transform: uppercase;
+   border-radius: 5px;
+   text-decoration: none;
+   display: inline-block;
+}
+
+.contact-btn:hover{
+    background: #FF2959;
+
+}
+
+.img-headline{
+margin-right: 10%;
+flex: 40%;
+text-align: center;
+}
+
+section{
+    display: inline-block;
+    margin-top: 80px;
+   /* border: 1px solid black;*/
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    padding: 5%;
+}
+
+section h2{
+    width: 100%;
+    font-size: 50px;
+    margin: 0;
+    font-family: "Lobster", sans-serif;   
+    font-weight: bold;
+    color: #180F4A;
+}
+
+.serviços{
+    display:inline;
+    align-items: normal;
+  
+
+}
+
+.card{
+   display: inline-block;
+   width: 30%;
+   background: #fff;
+     box-shadow:0 5px 15px rgba(0,0,0,.1);
+   padding: 20px;
+   margin: 1%;
+   transition: o.3s;
+   border: 1px solid rgba(245, 245, 245, 0);
+   border-radius: 10px;
+    }
+
+
+
+
+    .card:hover{
+         transform:translateY(-8px);
+    }
+
+.logo-rodape{
+    padding: 100px;
+}
+
+.moreno{
+     font-family: "Lobster", sans-serif; 
+     color:white;
+     font-size: 34px;
+      font-family: "Lobster", sans-ser;
+}
+
+.whats{
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    width: 100px;
+}
+
+ footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+
+header{
+    flex-direction:column;
+}
+
+nav ul{
+    margin-top:15px;
+}
+
+.hero h1{
+    font-size:38px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+}
+
+
+   .footer{
+    background:#14232b;
+    color:white;
+    padding:45px 8% 20px;
+    font-family:Arial, sans-serif;
+}
+
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+
+.footer-col{
+    display:flex;
+    flex-direction:column;
+}
+
+
+.footer-col h3{
+    font-size:16px;
+    margin-bottom:15px;
+}
+
+
+.footer-col p{
+    margin:5px 0;
+    color:#c8c8c8;
+    font-size:14px;
+}
+
+
+.footer-col a{
+    text-decoration:none;
+    color:#c8c8c8;
+    margin:5px 0;
+    font-size:14px;
+}
+
+
+.social{
+    display:flex;
+    gap:12px;
+    margin:15px 0;
+}
+
+
+.social a{
+    width:28px;
+    height:28px;
+    border:1px solid #777;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+}
+
+
+.footer small{
+    color:#aaa;
+}
+
+
+.copyright{
+    border-top:1px solid #39464d;
+    text-align:center;
+    margin-top:35px;
+    padding-top:20px;
+    color:#aaa;
+    font-size:13px;
+}
+
+
+/* Responsivo */
+@media(max-width:700px){
+
+.footer-container{
+    flex-direction:column;
+}
+
+}
+
+
+
+
+
+

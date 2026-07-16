@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="Css/responsivel.css">
+    <title>Nosso Cardápio</title>
+    
+
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    box-sizing: border-box;
+    padding-left: 0;
+}
+ 
+body{
+    margin: 0;
+     font-family: "Roboto", sans-serif;
+     color: var(--cream);
+     background: var(--black);
+     overflow-x: hidden;
+}
+
+.navbar{
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    background: gray;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+     background:yellow;
+    padding: 10px 25px;
+    color: black;
+    border-radius: 5px;
+    margin-right: 10%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+   button:hover{
+        border: none;
+   color: white;
+   }
+
+.logo h1{
+     flex: 20%;
+    margin-left:10px;
+     font-family: "Lobster", sans-ser;
+     color: yellow;
+}
+
+.logo{
+  font-size: 24px;
+  text-align: right;
+}
+
+.menu{
+    flex: 70%;
+    text-align: right;
+    padding: 20px;
+}  
+
+.menu a{
+    color: #180F4A;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 16px;
+}
+.menu a:hover{
+   color: white;
+    border-top: 4px solid #180F4A;
+}
+
+#botao{
+    background:yellow;
+    padding: 10px 25px;
+    color: black;
+    border-radius: 30px;
+    margin-right: 10%;
+    margin-left: 5%;
+    }
+
+  #botao:hover{
+   border: none;
+   color: yellow;
+   background: white;
+  }
+    
+    .menu-container{
+      width:90%;
+      max-width:1200px;
+      margin:40px auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:25px;
+    }
+
+    .card{
+      margin-top: 5%;
+      background:white;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card img{
+      width:100%;
+      height:120px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .card-content h2{
+      margin-bottom:10px;
+      color:#222;
+    }
+
+    .description{
+      font-size:15px;
+      color:#666;
+      margin-bottom:15px;
+      line-height:1.5;
+    }
+
+    .price{
+      font-size:22px;
+      font-weight:bold;
+      color:#e67e22;
+    }
+
+    .whats{
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    width: 100px;
+  }
+
+  footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+
+header{
+    flex-direction:column;
+}
+
+nav ul{
+    margin-top:15px;
+}
+
+.hero h1{
+    font-size:38px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+}
+
+
+   .footer{
+    background:#14232b;
+    color:white;
+    padding:45px 8% 20px;
+    font-family:Arial, sans-serif;
+}
+
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+
+.footer-col{
+    display:flex;
+    flex-direction:column;
+}
+
+
+.footer-col h3{
+    font-size:16px;
+    margin-bottom:15px;
+}
+
+
+.footer-col p{
+    margin:5px 0;
+    color:#c8c8c8;
+    font-size:14px;
+}
+
+
+.footer-col a{
+    text-decoration:none;
+    color:#c8c8c8;
+    margin:5px 0;
+    font-size:14px;
+}
+
+
+.social{
+    display:flex;
+    gap:12px;
+    margin:15px 0;
+}
+
+
+.social a{
+    width:28px;
+    height:28px;
+    border:1px solid #777;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+}
+
+
+.footer small{
+    color:#aaa;
+}
+
+
+.copyright{
+    border-top:1px solid #39464d;
+    text-align:center;
+    margin-top:35px;
+    padding-top:20px;
+    color:#aaa;
+    font-size:13px;
+}
+
+
+/* Responsivo */
+@media(max-width:700px){
+
+.footer-container{
+    flex-direction:column;
+}
+
+}
+
+  </style>
+</head>
+<body>
+
+    <nav class="navbar">
+       <div class="logo">
+           <h1 style="text-align: center;">Nosso Cardápio</a></h1>
+       </div>
+
+       <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="historia.html">Sobre nós</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a id="botao" href="reserva.html">Reservar Mesa</a>
+       </div>
+    </nav>
+
+  <section class="menu-container">
+
+    <!-- Prato 1 -->
+    <div class="card"> <a style="text-decoration: none;" href="reserva.html">
+      <img src="./img/pizza.webp" alt="Pizza">
+      
+      <div class="card-content">
+        <h2> Pizza Especial</h2>
+        <p class="description">
+          Pizza artesanal com queijo mozzarella, tomate fresco,
+          pepperoni e manjericão.
+        </p>
+        <div class="price">8.500 Kz</div>
+      </div></a>
+    </div>
+
+    <!-- Prato 2 -->
+    <div class="card"><a style="text-decoration: none;" href="reserva.html">
+      <img src="./img/hambur.webp" alt="Hambúrguer">
+
+      <div class="card-content">
+        <h2>Hambúrguer Gourmet</h2>
+        <p class="description">
+          Hambúrguer suculento com carne grelhada,
+          queijo cheddar, bacon crocante e molho especial.
+        </p>
+
+        <div class="price">5.500 Kz</div>
+      </div></a>
+    </div>
+
+    <!-- Prato 3 -->
+    <div class="card"><a style="text-decoration: none;" href="reserva.html">
+      <img src="./img/pra.webp" alt="Prato Executivo">
+
+      <div class="card-content">
+        <h2>Prato Executivo</h2>
+        <p class="description">
+          Arroz, legumes salteados e carne grelhada
+          preparada ao ponto perfeito.
+        </p>
+
+        <div class="price">7.200 Kz</div>
+      </div></a>
+    </div>
+
+    <!-- Prato 4 -->
+    <div class="card"><a style="text-decoration: none;" href="reserva.html">
+      <img src="./img/salada.webp" alt="Salada">
+
+      <div class="card-content">
+        <h2>Salada Tropical</h2>
+        <p class="description">
+          Mix de vegetais frescos, frutas tropicais
+          e molho leve da casa.
+        </p>
+
+        <div class="price">4.000 Kz</div>
+      </div></a>
+    </div>
+
+    <!-- Prato 5 -->
+    <div class="card"><a style="text-decoration: none;" href="reserva.html">
+      <img src="./img/massa.webp" alt="Massa">
+
+      <div class="card-content">
+        <h2>Massa Italiana</h2>
+        <p class="description">
+          Massa ao molho cremoso com queijo parmesão
+          e ervas finas italianas.
+        </p>
+
+        <div class="price">6.800 Kz</div>
+      </div></a>
+    </div>
+
+
+ <!-- Prato 6 -->
+    <div class="card"><a style="text-decoration: none;" href="reserva.html">
+      <img src="./img/rest.webp" alt="Carne">
+
+      <div class="card-content">
+        <h2>Carne</h2>
+        <p class="description">
+          carne ao molho cremosoe ervas finas italianas.
+        </p>
+
+        <div class="price">6.800 Kz</div>
+      </div></a>
+    </div>
+
+    <!-- Prato 7 -->
+    <div class="card"><a style="text-decoration: none;" href="reserva.html">
+      <img src="./img/rest1.webp" alt="Arroz">
+
+      <div class="card-content">
+        <h2>Arroz com feijão</h2>
+        <p class="description">
+          Delicioso prato tipico, sempre servido em ocasiões memóraveis.
+        </p>
+
+        <div class="price">3.500 Kz</div>
+      </div></a>
+    </div>
+
+
+ <!-- Prato 8 -->
+    <div class="card"><a style="text-decoration: none;" href="reserva.html">
+      <img src="./img/bife.webp" alt="Bife">
+
+      <div class="card-content">
+        <h2>Bife</h2>
+        <p class="description">
+          Deliciosa, suculenta, uma das nossas especialidades.
+        </p>
+
+        <div class="price">7.500 Kz</div>
+      </div></a>
+    </div>
+
+
+  </section>
+
+ <footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h3>Sabor importantes</h3>
+            <p>Criado em Angola com dedicação.</p>
+
+            <div class="social">
+                <a href="#">◎</a>
+                <a href="#">♪</a>
+                <a href="#">☏</a>
+            </div>
+
+            <small>@Saborimperial</small>
+        </div>
+
+
+        <div class="footer-col">
+            <h3>Contacto</h3>
+            <p>+244 944 686 993</p>
+            <p>Saborimperial@gmail.com</p>
+        </div>
+
+
+        <div class="footer-col">
+            <h3>Horário</h3>
+            <p>Domingo a Domingo</p>
+            <p>8h00 — 21h00</p>
+        </div>
+
+
+        <div class="footer-col">
+            <h3>Navegar</h3>
+            <a href="#">Home</a>
+            <a href="#">Sobre nós</a>
+            <a href="#">Cardápio</a>
+            <a href="#">Reservar Mesa</a>
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 Sabor Imperial — Qualidade que se sente.
+    </div>
+   
+   <a class="whats" target="_blank" href="https://wa.link/z3ex6j"><img style="width: 70px; margin-bottom: 30px;" src="./img/whats.png"></a>
+    </header>
+
+
+</body>
+</html>
