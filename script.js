@@ -17,3 +17,24 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 elementos.forEach((el) => observer.observe(el));
+
+/* ================================
+   Menu hambúrguer (3 barras) - Mobile
+================================ */
+const menuToggle = document.getElementById("menuToggle");
+const menu = document.querySelector(".menu");
+
+if (menuToggle && menu) {
+    menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("ativo");
+        menuToggle.classList.toggle("ativo");
+    });
+
+    // Fecha o menu ao clicar em um link (melhora a navegação no telefone)
+    menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            menu.classList.remove("ativo");
+            menuToggle.classList.remove("ativo");
+        });
+    });
+}

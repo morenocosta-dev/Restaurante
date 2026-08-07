@@ -1,155 +1,296 @@
-/* =========================
-   MEDIA QUERIES RESPONSIVAS
-========================= */
+/* =========================================================
+   RESPONSIVIDADE — Sabor Imperial
+   Tablets (≤ 992px) e Telefones (≤ 600px / 400px)
+========================================================= */
 
-/* Tablets */
-@media screen and (max-width: 992px) {
+/* ---------- MENU HAMBÚRGUER (3 barras) ---------- */
+/* Escondido no desktop, só aparece em telefone */
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1001;
+}
 
-    nav {
-        padding: 15px 30px;
+.menu-toggle span{
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: yellow;
+    border-radius: 4px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Anima as 3 barras para um "X" quando o menu está aberto */
+.menu-toggle.ativo span:nth-child(1){
+    transform: translateY(10px) rotate(45deg);
+}
+.menu-toggle.ativo span:nth-child(2){
+    opacity: 0;
+}
+.menu-toggle.ativo span:nth-child(3){
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+@media screen and (max-width: 992px){
+
+    .navbar{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 15px 25px;
     }
 
-    .menu {
-        gap: 20px;
+    .logo{
+        text-align: left;
+        flex: none;
     }
 
-    .home {
+    .logo h1{
+        margin-left: 0;
+        font-size: 26px;
+    }
+
+    .menu{
+        flex: 100%;
+        text-align: center;
+        padding: 15px 0 0 0;
+    }
+
+    .menu a{
+        font-size: 17px;
+        padding: 12px 10px;
+    }
+
+    #botao{
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    /* Home */
+    .header{
         flex-direction: column;
         text-align: center;
         padding: 40px 20px;
     }
 
-    .home-text {
-        width: 100%;
+    .headline,
+    .img-headline{
+        flex: 100%;
+        margin: 0;
     }
 
-    .home-image {
-        width: 100%;
-        margin-top: 30px;
+    .img-headline img{
+        width: 70% !important;
+        height: auto !important;
+        margin-top: 25px;
     }
 
-    .home-image img {
-        width: 80%;
+    section h2{
+        font-size: 36px;
     }
 
-    .cards {
+    .card{
+        width: 45%;
+    }
+
+    /* Cardápio */
+    .menu-container{
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        padding: 20px;
     }
 
-    footer {
-        text-align: center;
-        padding: 30px 20px;
+    /* Nossa história */
+    .coluna img{
+        max-width: 45% !important;
+    }
+
+    /* Reserva */
+    .form-grid{
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+    /* Rodapé */
+    .footer-container{
+        justify-content: space-between;
+        gap: 25px;
+    }
+
+    .footer-col{
+        flex: 1 1 40%;
     }
 }
 
 
-/* Smartphones */
-@media screen and (max-width: 768px) {
+/* =========================================================
+   TELEFONES
+========================================================= */
+@media screen and (max-width: 600px){
 
-    nav {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .logo {
-        font-size: 2rem;
-    }
-
-    .menu {
-        flex-direction: column;
+    .navbar{
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        gap: 15px;
+        padding: 15px 20px;
+        position: relative;
     }
 
-    .btn-reserva {
+    .logo{
+        flex: none;
+    }
+
+    .logo h1{
+        font-size: 22px;
+    }
+
+    /* Mostra as 3 barras */
+    .menu-toggle{
+        display: flex;
+    }
+
+    /* Menu escondido até clicar no hambúrguer */
+    .menu{
+        display: none;
+        flex-direction: column;
         width: 100%;
         text-align: center;
+        background: gray;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 10px 0 20px 0;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
 
-    .home {
-        padding: 30px 15px;
+    .menu.ativo{
+        display: flex;
     }
 
-    .home-text h1 {
-        font-size: 2.5rem;
+    .menu a{
+        display: block;
+        width: 100%;
+        padding: 14px 0;
+        font-size: 16px;
+        border-top: 1px solid rgba(255,255,255,0.15);
     }
 
-    .home-text p {
+    #botao{
+        margin: 12px auto 0 auto;
+        width: fit-content;
+    }
+
+    /* Home */
+    .headline h2{
+        font-size: 28px !important;
+        letter-spacing: 6px !important;
+    }
+
+    .headline p{
         font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .home-image img {
-        width: 100%;
-    }
-
-    .cardapio h2 {
-        font-size: 2.2rem;
+        line-height: 1.7;
         text-align: center;
     }
 
-    .cards {
+    .contact-btn{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .img-headline img{
+        width: 90% !important;
+    }
+
+    section{
+        padding: 8%;
+        margin-top: 40px;
+    }
+
+    section h2{
+        font-size: 28px;
+    }
+
+    .card{
+        width: 100%;
+        margin: 12px 0;
+    }
+
+    /* Cardápio */
+    .menu-container{
+        grid-template-columns: 1fr;
+        width: 92%;
+        gap: 18px;
+    }
+
+    /* Nossa história */
+    .coluna img{
+        float: none !important;
+        display: block;
+        margin: 0 auto 20px auto !important;
+        max-width: 80% !important;
+    }
+
+    /* Reserva */
+    .form-container{
+        padding: 20px;
+        width: 92%;
+    }
+
+    .form-grid{
         grid-template-columns: 1fr;
     }
 
-    .card {
-        width: 100%;
+    .full{
+        grid-column: auto;
     }
 
-    .card img {
-        width: 120px;
+    /* Rodapé */
+    .footer-container{
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
     }
 
-    footer h2 {
-        font-size: 2rem;
+    .social{
+        justify-content: center;
     }
 
-    footer p {
-        font-size: 14px;
-    }
-
-    .whatsapp {
-        width: 60px;
-        height: 60px;
-        bottom: 20px;
-        right: 20px;
+    .whats img{
+        width: 55px !important;
     }
 }
 
 
-/* Smartphones Pequenos */
-@media screen and (max-width: 480px) {
+/* =========================================================
+   TELEFONES PEQUENOS
+========================================================= */
+@media screen and (max-width: 400px){
 
-    .logo {
-        font-size: 1.8rem;
+    .logo h1{
+        font-size: 19px;
     }
 
-    .home-text h1 {
-        font-size: 2rem;
+    .headline h2{
+        font-size: 22px !important;
     }
 
-    .home-text p {
-        font-size: 14px;
+    section h2{
+        font-size: 24px;
     }
 
-    .btn-reserva,
-    .btn-pedir {
-        padding: 12px 20px;
-        font-size: 14px;
+    .card h3,
+    .card-content h2{
+        font-size: 18px;
     }
 
-    .card h3 {
-        font-size: 1.2rem;
-    }
-
-    .card p {
-        font-size: 14px;
-    }
-
-    footer {
-        padding: 20px 10px;
+    .price{
+        font-size: 18px;
     }
 }
