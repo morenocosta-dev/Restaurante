@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="Css/estilo.css">
-     <link rel="stylesheet" href="Css/responsivel.css">
-   
+    <link rel="stylesheet" href="estilo.css">
+    <meta name="author"content="Moreno Costa">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0d3b66">
+    <title>Sabor Imperial</title>
 </head>
 <body>
+    <header>
     <nav class="navbar">
        <div class="logo">
            <h1 style="text-align: center;">Sabor Imperial</a></h1>
@@ -20,11 +22,30 @@
        </div>
        <div class="menu">
         <a href="index.html">Home</a>
-        <a href="historia.html">Sobre nós</a>
+        <a href="#sobre">Sobre nós</a>
         <a href="cardapio.html">Cardápio</a>
         <a id="botao" href="reserva.html">Reserva</a>
        </div>
     </nav>
+</header>
+     <section class="hero" id="inicio">
+        <div class="hero-content">
+            <small>UMA EXPERIÊNCIA INESQUECÍVEL</small>
+
+            <h1>
+                Sabor que conta
+                <span>histórias.</span>
+            </h1>
+
+            <p>
+                Descubra uma combinação perfeita entre ingredientes
+                selecionados, criatividade e tradição em cada prato.
+            </p>
+
+            <a href="reserva.html" class="btn">Reservar uma mesa</a>
+        </div>
+    </section>
+
      <div class="header">
       <div class="headline">
         <h2 style="letter-spacing: 15px;">Você achou o melhor</h2>
@@ -37,35 +58,74 @@ Venha descobrir sabores únicos e sentir-se em casa. Seu lugar à mesa já está
       <div class="img-headline">
         <img style="width: 65%;height: 65%;object-fit: cover;border-radius: 10PX; " src="yh.jpg">
       </div>
-     <section>
-         <h2 style="color: yellow;font-family:Lobster, sans-ser;">Nosso Cardápio, Melhor Sabor </h2>
-         <p>Pratos preparados com saber e Qualidade</p>
-         <div class="serviços">
-           <div class="card">
-             <img src="./img/hambur.webp" style="width: 22%;height: 30%;object-fit: cover;border-radius: 10PX;">
-            <h3>Hambúrguer Grill
-4.500 Kz</h3>
-            <p>Hambúrguer artesanal com queijo cheddar, bacon crocante e molho especial da casa.</p>
-              <button style="border-radius: 5px;border: none;"><a style="text-decoration: none;color: black;" href="reserva.html">Pedir Agora.</a></button>
+
+       <!-- MENU -->
+<section class="menu" id="menu">
+        <div class="section-title">
+           <p>O Nosso menu</p>
+            <h2>Pratos especiais</h2>
+        </div>
+
+        <div class="menu-grid">
+
+            <div class="card">
+                <img src="/img/prato1.avif" alt="Salada especial">
+
+                <div class="card-content">
+                    <h3>Salada Mediterrânea</h3>
+                    <p>Folhas frescas, tomate, queijo, azeitonas e molho especial da casa.</p>
+                    <span class="price">8.500 Kz</span>
+                </div>
             </div>
-           </div>
-           <div class="card">
-              <img src="./img/pizza.webp" style="width:35%;height: 50%;object-fit: cover;border-radius: 10PX;">
-               <h3>Pizza Italiana    6.000kz</h3>
-            <p>Pizza preparada em forno tradicional com molho artesanal e ingredientes frescos.</p>
-             <button style="border-radius: 5px;border: none;"><a style="text-decoration: none;color: black;" href="reserva.html">Pedir Agora.</a></button>
-           </div>
-           <div class="card">
-              <img src="./img/bife.webp" style="width: 30%;height: 50%;object-fit: cover;border-radius: 10PX;">
-               <h3>Bife Premium
-8.500 Kz</h3>
-            <p>Bife grelhado ao ponto acompanhado com batatas rústicas e legumes frescos.</p>
-             <button style="border-radius: 5px;border: none;"><a style="text-decoration: none;color: black;" href="reserva.html">Pedir Agora.</a></button>
-           </div>
-             
-     </section>
-   
- <footer style="width: 100%;" class="footer">
+
+            <div class="card">
+                <img src="/img/pra2.avif" alt="Carne grelhada">
+
+                <div class="card-content">
+                    <h3>Filé Grelhado</h3>
+                    <p>Filé suculento grelhado, acompanhado de legumes e molho artesanal.</p>
+                    <span class="price">18.500 Kz</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/img/pra3.avif" alt="Massa italiana">
+
+                <div class="card-content">
+                    <h3>Massa Artesanal</h3>
+                    <p>Massa fresca preparada diariamente com molho cremoso e ervas.</p>
+                    <span class="price">12.000 Kz</span>
+                </div>
+            </div>
+        </div>
+</section>
+
+<section id="sobre">
+        <div class="about">
+
+            <div class="about-image">
+                <img style=" height: 500px; border-radius: 20px;; align-items: center;justify-content: center;" src="rest.avif" alt="">
+            </div>
+
+               <div class="about-content">
+                <span> <a style="text-decoration: none;" href="#sobre"></a>A NOSSA HISTÓRIA</a></span>
+
+                <h2>Mais do que uma refeição.</h2>
+
+                <p>O Sabor & Arte nasceu da paixão por transformar bons ingredientes em momentos especiais.</p>
+
+                <p>   A nossa cozinha combina técnicas modernas com sabores
+                tradicionais, criando pratos pensados para surpreender.</p>
+
+                <p>  Venha conhecer o nosso espaço e desfrute de uma experiência
+                gastronómica preparada com carinho.</p>
+
+                <a style="text-decoration: none;margin-top: 10%; padding: 18px;" id="botao" href="contacto.html" >
+                    Conheça-nos melhor
+                </a>
+               </div>
+</section>
+<footer style="margin-top: 5%;width: 100%;" class="footer">
     <div class="footer-container">
 
         <div class="footer-col">
@@ -110,10 +170,6 @@ Venha descobrir sabores únicos e sentir-se em casa. Seu lugar à mesa já está
     <div class="copyright">
         © 2026 Sabor Imperial — Qualidade que se sente.
     </div>
- 
-   
-   <a class="whats" target="_blank" href="https://wa.link/z3ex6j"><img style="width: 70px; margin-bottom: 30px;" src="./img/whats.png"></a>
-    </header>
     <script src="script.js"></script>
 </body>
 </html>
