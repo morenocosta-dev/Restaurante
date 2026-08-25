@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Login Administrativo — Sabor Imperial</title>
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <style>
+
+        .login-admin-container {
+
+            min-height: 80vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 40px 20px;
+
+        }
+
+
+        .login-admin-box {
+
+            width: 100%;
+
+            max-width: 450px;
+
+            padding: 40px;
+
+            border-radius: 15px;
+
+            background: #111;
+
+            box-shadow: 0 10px 40px rgba(0,0,0,.4);
+
+        }
+
+
+        .login-admin-title {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .login-admin-title p {
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .login-admin-title h2 {
+
+            margin: 0;
+
+        }
+
+
+        .admin-input {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .admin-input label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-weight: bold;
+
+        }
+
+
+        .admin-input input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            box-sizing: border-box;
+
+            border-radius: 8px;
+
+            border: 1px solid #444;
+
+            background: #080808;
+
+            color: white;
+
+            outline: none;
+
+        }
+
+
+        .admin-input input:focus {
+
+            border-color: #c9a227;
+
+        }
+
+
+        .btn-login-admin {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            background: #c9a227;
+
+            color: #000;
+
+        }
+
+
+        .btn-login-admin:hover {
+
+            opacity: .9;
+
+        }
+
+
+        .erro-login {
+
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            background: #451515;
+
+            color: #ffb0b0;
+
+        }
+
+
+        .voltar {
+
+            display: block;
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            text-decoration: none;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <h1>
+                Sabor Imperial
+            </h1>
+
+        </div>
+
+
+        <div
+            class="menu-toggle"
+            id="menuToggle">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <div class="menu">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="cardapio.html">
+                Cardápio
+            </a>
+
+            <a href="reserva.html">
+                Reserva
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main
+    style="margin-top: 100px;"
+    class="login-admin-container">
+
+
+    <div class="login-admin-box">
+
+
+        <div class="login-admin-title">
+
+            <p>
+                ÁREA RESTRITA
+            </p>
+
+            <h2>
+                Login do Gerente
+            </h2>
+
+        </div>
+
+
+        <form id="formLoginAdmin">
+
+
+            <div class="admin-input">
+
+                <label for="nomeGerente">
+                    Nome
+                </label>
+
+                <input
+                    id="nomeGerente"
+                    type="text"
+                    placeholder="Digite o nome do gerente"
+                    autocomplete="username"
+                    required>
+
+            </div>
+
+
+            <div class="admin-input">
+
+                <label for="codigoGerente">
+                    Código de acesso
+                </label>
+
+                <input
+                    id="codigoGerente"
+                    type="password"
+                    placeholder="Digite o código"
+                    autocomplete="current-password"
+                    required>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn-login-admin">
+
+                Entrar no Administrativo
+
+            </button>
+
+
+            <div
+                id="erroLogin"
+                class="erro-login">
+
+                Nome ou código incorreto.
+
+            </div>
+
+
+        </form>
+
+
+        <a
+            class="voltar"
+            href="index.html">
+
+            ← Voltar
+
+        </a>
+
+
+    </div>
+
+</main>
+
+
+<footer
+    style="margin-top: 5%;width: 100%;"
+    class="footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-col">
+
+            <h3>
+                Sabor Imperial
+            </h3>
+
+            <p>
+                Criado em Angola com dedicação.
+            </p>
+
+
+            <div class="social">
+
+                <a href="#">◎</a>
+                <a href="#">♪</a>
+                <a href="#">☏</a>
+
+            </div>
+
+
+            <small>
+                @Saborimperial
+            </small>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h3>
+                Contacto
+            </h3>
+
+            <p>
+                +244 944 686 993
+            </p>
+
+            <p>
+                Saborimperial@gmail.com
+            </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h3>
+                Horário
+            </h3>
+
+            <p>
+                Domingo a Domingo
+            </p>
+
+            <p>
+                8h00 — 21h00
+            </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h3>
+                Navegar
+            </h3>
+
+            <a href="#">
+                Home
+            </a>
+
+            <a href="#">
+                Sobre nós
+            </a>
+
+            <a href="#">
+                Cardápio
+            </a>
+
+            <a href="#">
+                Reservar Mesa
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Sabor Imperial —
+        Qualidade que se sente.
+
+    </div>
+
+</footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const formulario = document.getElementById("formLoginAdmin");
+    const erro = document.getElementById("erroLogin");
+
+    const NOME_GERENTE = "Gerente";
+    const CODIGO_GERENTE = "SABOR2026";
+
+    formulario.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const nome = document
+            .getElementById("nomeGerente")
+            .value
+            .trim();
+
+        const codigo = document
+            .getElementById("codigoGerente")
+            .value
+            .trim();
+
+        if (
+            nome.toLowerCase() === NOME_GERENTE.toLowerCase() &&
+            codigo === CODIGO_GERENTE
+        ) {
+
+            localStorage.setItem(
+                "saborimperial_usuario",
+                JSON.stringify({
+                    nome: "Gerente",
+                    funcao: "gerente",
+                    autenticado: true
+                })
+            );
+
+            localStorage.setItem(
+                "saborimperial_admin",
+                "true"
+            );
+
+            erro.style.display = "none";
+
+            window.location.href = "./admin.html";
+
+        } else {
+
+            erro.textContent =
+                "Nome ou código incorreto.";
+
+            erro.style.display = "block";
+
+        }
+
+    });
+
+});
+</script>
+
+
+<script>
+
+/* =====================================================
+   DADOS DO GERENTE
+===================================================== */
+
+const NOME_GERENTE =
+    "Gerente";
+
+const CODIGO_GERENTE =
+    "SABOR2026";
+
+
+/* =====================================================
+   LOGIN DO GERENTE
+===================================================== */
+
+document
+    .getElementById("formLoginAdmin")
+    .addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const nome =
+                document
+                    .getElementById("nomeGerente")
+                    .value
+                    .trim();
+
+
+            const codigo =
+                document
+                    .getElementById("codigoGerente")
+                    .value
+                    .trim();
+
+
+            const erro =
+                document
+                    .getElementById("erroLogin");
+
+
+            /*
+             * Aceita o nome sem diferença
+             * entre maiúsculas e minúsculas.
+             */
+
+            if (
+                nome.toLowerCase() ===
+                NOME_GERENTE.toLowerCase()
+                &&
+                codigo === CODIGO_GERENTE
+            ) {
+
+
+                const gerente = {
+
+                    nome: NOME_GERENTE,
+
+                    funcao: "gerente",
+
+                    autenticado: true,
+
+                    loginEm:
+                        new Date().toISOString()
+
+                };
+
+
+                localStorage.setItem(
+                    "saborimperial_usuario",
+                    JSON.stringify(gerente)
+                );
+
+
+                localStorage.setItem(
+                    "saborimperial_admin",
+                    "true"
+                );
+
+
+                /*
+                 * Vai para o painel.
+                 */
+
+                window.location.replace(
+                    "admin.html"
+                );
+
+            }
+
+            else {
+
+                erro.textContent =
+                    "Nome ou código incorreto.";
+
+                erro.style.display =
+                    "block";
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

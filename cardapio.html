@@ -1,102 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
-    <meta name="author"content="Moreno Costa">
+    <meta name="author" content="Moreno Costa">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d3b66">
     <title>Nosso Cardápio</title>
 </head>
+
 <body>
+
 <header>
     <nav class="navbar">
-       <div class="logo">
-           <h1 style="text-align: center;">Nosso Cardápio</a></h1>
-       </div>
 
-       <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="#sobre">Sobre nós</a>
-        <a href="cardapio.html">Cardápio</a>
-        <a id="botao" href="reserva.html">Reservar Mesa</a>
-       </div>
-    </nav>
-</header>
-<div style="margin-top: 140px;text-align: center;font-weight: bold;">
-    <h2 style="font-size: 36px;color: black;">Pratos em destaque</h2>
-<p style="color: #333;font-size: 17px;">Confira alguns dos nossos melhores pratos.</p>
-</div>
-   <div style="margin-top: 150px; margin-bottom: 50px;" class="menu-grid">
+        <div class="logo">
+            <h1 style="text-align: center;">Nosso Cardápio</h1>
+        </div>
 
-            <div class="card">
-                <img src="img/prato1.avif" alt="Salada especial">
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-                <div class="card-content">
-                    <h3>Salada Mediterrânea</h3>
-                    <p>Folhas frescas, tomate, queijo, azeitonas e molho especial da casa.</p>
-                    <span class="price">8.500 Kz</span>
-                </div>
-            </div>
+        <div class="menu">
 
-            <div class="card">
-                <img src="img/pra2.avif" alt="Carne grelhada">
-
-                <div class="card-content">
-                    <h3>Filé Grelhado</h3>
-                    <p>Filé suculento grelhado, acompanhado de legumes e molho artesanal.</p>
-                    <span class="price">18.500 Kz</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/pra3.avif" alt="Massa italiana">
-
-                <div class="card-content">
-                    <h3>Massa Artesanal</h3>
-                    <p>Massa fresca preparada diariamente com molho cremoso e ervas.</p>
-                    <span class="price">12.000 Kz</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/pra4.avif" alt="Pizza">
-
-                <div class="card-content">
-                    <h3>Pizza da Casa</h3>
-                    <p>Massa fina, molho de tomate, queijo e ingredientes selecionados.</p>
-                    <span class="price">10.500 Kz</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/pra5.avif" alt="Sobremesa">
-
-                <div class="card-content">
-                    <h3>Doce da Casa</h3>
-                    <p>Uma sobremesa delicada criada especialmente pelos nossos chefs.</p>
-                    <span class="price">6.000 Kz</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/pra6.avif" alt="Bebida">
-
-                <div class="card-content">
-                    <h3>Sumo Natural</h3>
-                    <p>Frutas frescas selecionadas e preparadas na hora.</p>
-                    <span class="price">3.500 Kz</span>
-                </div>
-            </div>
+            <a href="index.html">Home</a>
+            <a href="index.html#sobre">Sobre nós</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="reserva.html">Reservar</a>
+            <a id="botao" href="login.html">Adminisrativo</a>
 
         </div>
-    </section>
- <footer class="footer">
+
+    </nav>
+</header>
+
+
+<div style="margin-top:140px;text-align:center;font-weight:bold;">
+
+    <h2 style="font-size:36px;color:black;">
+        Pratos em destaque
+    </h2>
+
+    <p style="color:#333;font-size:17px;">
+        Confira alguns dos nossos melhores pratos.
+    </p>
+
+</div>
+
+
+<div
+    id="menuGrid"
+    style="margin-top:150px;margin-bottom:50px;"
+    class="menu-grid">
+</div>
+
+
+<footer class="footer">
+
     <div class="footer-container">
 
         <div class="footer-col">
-            <h3>Sabor importantes</h3>
+
+            <h3>Sabor Imperial</h3>
+
             <p>Criado em Angola com dedicação.</p>
 
             <div class="social">
@@ -106,34 +76,188 @@
             </div>
 
             <small>@Saborimperial</small>
+
         </div>
 
 
         <div class="footer-col">
+
             <h3>Contacto</h3>
+
             <p>+244 944 686 993</p>
+
             <p>Saborimperial@gmail.com</p>
+
         </div>
 
 
         <div class="footer-col">
+
             <h3>Horário</h3>
+
             <p>Domingo a Domingo</p>
+
             <p>8h00 — 21h00</p>
+
         </div>
+
+
         <div class="footer-col">
+
             <h3>Navegar</h3>
-            <a href="#">Home</a>
-            <a href="#">Sobre nós</a>
-            <a href="#">Cardápio</a>
-            <a href="#">Reservar Mesa</a>
+
+            <a href="index.html">Home</a>
+            <a href="index.html#sobre">Sobre nós</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="reserva.html">Reservar Mesa</a>
+
         </div>
+
     </div>
+
+
     <div class="copyright">
+
         © 2026 Sabor Imperial — Qualidade que se sente.
+
     </div>
-   
-    </header>
- <script src="script.js"></script>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+<script>
+
+const pratosPadrao = [
+
+    {
+        id: 1,
+        nome: "Salada Mediterrânea",
+        descricao: "Folhas frescas, tomate, queijo, azeitonas e molho especial da casa.",
+        preco: 8500,
+        imagem: "img/prato1.avif"
+    },
+
+    {
+        id: 2,
+        nome: "Filé Grelhado",
+        descricao: "Filé suculento grelhado, acompanhado de legumes e molho artesanal.",
+        preco: 18500,
+        imagem: "img/pra2.avif"
+    },
+
+    {
+        id: 3,
+        nome: "Massa Artesanal",
+        descricao: "Massa fresca preparada diariamente com molho cremoso e ervas.",
+        preco: 12000,
+        imagem: "img/pra3.avif"
+    },
+
+    {
+        id: 4,
+        nome: "Pizza da Casa",
+        descricao: "Massa fina, molho de tomate, queijo e ingredientes selecionados.",
+        preco: 10500,
+        imagem: "img/pra4.avif"
+    },
+
+    {
+        id: 5,
+        nome: "Doce da Casa",
+        descricao: "Uma sobremesa delicada criada especialmente pelos nossos chefs.",
+        preco: 6000,
+        imagem: "img/pra5.avif"
+    },
+
+    {
+        id: 6,
+        nome: "Sumo Natural",
+        descricao: "Frutas frescas selecionadas e preparadas na hora.",
+        preco: 3500,
+        imagem: "img/pra6.avif"
+    }
+
+];
+
+
+function carregarPratos() {
+
+    const grid = document.getElementById("menuGrid");
+
+    let pratos =
+        JSON.parse(localStorage.getItem("saborimperial_pratos"));
+
+    if (!pratos) {
+
+        pratos = pratosPadrao;
+
+        localStorage.setItem(
+            "saborimperial_pratos",
+            JSON.stringify(pratos)
+        );
+
+    }
+
+
+    grid.innerHTML = "";
+
+
+    pratos.forEach(prato => {
+
+        const card = document.createElement("div");
+
+        card.className = "card prato-clicavel";
+
+        card.innerHTML = `
+
+            <img
+                src="${prato.imagem}"
+                alt="${prato.nome}"
+            >
+
+            <div class="card-content">
+
+                <h3>${prato.nome}</h3>
+
+                <p>${prato.descricao}</p>
+
+                <span class="price">
+                    ${Number(prato.preco).toLocaleString("pt-AO")} Kz
+                </span>
+
+            </div>
+
+        `;
+
+
+        card.addEventListener("click", () => {
+
+            const params = new URLSearchParams({
+
+                prato: prato.nome,
+
+                preco: prato.preco
+
+            });
+
+            window.location.href =
+                "reserva.html?" + params.toString();
+
+        });
+
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+carregarPratos();
+
+</script>
+
 </body>
 </html>

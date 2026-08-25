@@ -26,7 +26,8 @@
         <a href="index.html">Home</a>
         <a href="#sobre">Sobre nós</a>
         <a href="cardapio.html">Cardápio</a>
-        <a id="botao" href="reserva.html">Reserva</a>
+        <a href="reserva.html">Reserva</a>
+        <a id="botao" href="login.html">Adminisrativo</a>
        </div>
     </nav>
 </header>
@@ -172,6 +173,34 @@ Venha descobrir sabores únicos e sentir-se em casa. Seu lugar à mesa já está
     <div class="copyright">
         © 2026 Sabor Imperial — Qualidade que se sente.
     </div>
+</footer>
     <script src="script.js"></script>
+    <script>
+document.querySelectorAll(".menu-grid .card").forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        const nome =
+            card.querySelector("h3").textContent.trim();
+
+        const precoTexto =
+            card.querySelector(".price").textContent.trim();
+
+        const preco =
+            precoTexto
+                .replace(/\./g, "")
+                .replace(" Kz", "")
+                .trim();
+
+        window.location.href =
+            "reserva.html?prato=" +
+            encodeURIComponent(nome) +
+            "&preco=" +
+            encodeURIComponent(preco);
+
+    });
+
+});
+</script>
 </body>
 </html>

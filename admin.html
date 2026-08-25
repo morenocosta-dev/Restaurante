@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <title>Administração — Sabor Imperial</title>
+
+</head>
+
+
+<body>
+
+    <script>
+(function () {
+
+    const dados = localStorage.getItem(
+        "saborimperial_usuario"
+    );
+
+    if (!dados) {
+
+        window.location.href =
+            "./login-admin.html";
+
+        return;
+    }
+
+    try {
+
+        const usuario = JSON.parse(dados);
+
+        if (
+            usuario.funcao !== "gerente" ||
+            usuario.autenticado !== true
+        ) {
+
+            localStorage.removeItem(
+                "saborimperial_usuario"
+            );
+
+            localStorage.removeItem(
+                "saborimperial_admin"
+            );
+
+            window.location.href =
+                "./login-admin.html";
+
+            return;
+        }
+
+    } catch (erro) {
+
+        localStorage.removeItem(
+            "saborimperial_usuario"
+        );
+
+        localStorage.removeItem(
+            "saborimperial_admin"
+        );
+
+        window.location.href =
+            "./login-admin.html";
+    }
+
+})();
+</script>
+
+<!-- =====================================================
+     PROTEÇÃO DA ÁREA ADMINISTRATIVA
+===================================================== -->
+
+<script>
+
+(function protegerAreaAdministrativa() {
+
+    const dados =
+        localStorage.getItem(
+            "saborimperial_usuario"
+        );
+
+
+    /*
+     * Se não existir sessão,
+     * volta para o login administrativo.
+     */
+
+    if (!dados) {
+
+        alert(
+            "Acesso restrito. Faça login como gerente."
+        );
+
+        window.location.replace(
+            "login-admin.html"
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const usuario =
+            JSON.parse(dados);
+
+
+        /*
+         * Verifica se o usuário é realmente gerente.
+         */
+
+        if (
+            usuario.funcao !== "gerente"
+            ||
+            usuario.autenticado !== true
+        ) {
+
+            alert(
+                "Acesso negado. Apenas o gerente pode entrar."
+            );
+
+
+            localStorage.removeItem(
+                "saborimperial_usuario"
+            );
+
+
+            localStorage.removeItem(
+                "saborimperial_admin"
+            );
+
+
+            window.location.replace(
+                "login-admin.html"
+            );
+
+            return;
+
+        }
+
+
+        console.log(
+            "Gerente autenticado:",
+            usuario.nome
+        );
+
+    }
+
+
+    catch (erro) {
+
+        console.error(
+            "Erro ao verificar sessão:",
+            erro
+        );
+
+
+        localStorage.removeItem(
+            "saborimperial_usuario"
+        );
+
+
+        localStorage.removeItem(
+            "saborimperial_admin"
+        );
+
+
+        window.location.replace(
+            "login-admin.html"
+        );
+
+    }
+
+})();
+
+</script>
+
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <h1>
+                Sabor Imperial
+            </h1>
+
+        </div>
+
+
+        <div
+            class="menu-toggle"
+            id="menuToggle">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <div class="menu">
+
+            <a href="index.html">Home</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="reserva.html">Reserva</a>
+            <a id="botao" href="#" onclick="sairAdmin(); return false;">Sair</a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main class="admin-container">
+
+
+    <div class="admin-title">
+
+        <p>
+            PAINEL ADMINISTRATIVO
+        </p>
+
+        <h2>
+            Gestão do restaurante
+        </h2>
+
+    </div>
+
+
+    <section class="admin-section">
+
+        <div class="admin-section-title">
+
+            <h2>
+                Pedidos recebidos
+            </h2>
+
+
+            <button
+                class="admin-refresh"
+                onclick="carregarPedidos()">
+
+                Atualizar
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="pedidosContainer"
+            class="pedidos-container">
+        </div>
+
+    </section>
+
+
+    <section class="admin-section">
+
+        <div class="admin-section-title">
+
+            <h2>
+                Adicionar prato ao cardápio
+            </h2>
+
+        </div>
+
+
+        <form
+            id="formPrato"
+            class="admin-form">
+
+
+            <div class="input-box">
+
+                <label>
+                    NOME DO PRATO
+                </label>
+
+                <input
+                    id="novoNome"
+                    type="text"
+                    required
+                    placeholder="Ex: Frango Grelhado">
+
+            </div>
+
+
+            <div class="input-box">
+
+                <label>
+                    PREÇO
+                </label>
+
+                <input
+                    id="novoPreco"
+                    type="number"
+                    required
+                    placeholder="Ex: 15000">
+
+            </div>
+
+
+            <div class="input-box">
+
+                <label>
+                    IMAGEM
+                </label>
+
+                <input
+                    id="novaImagem"
+                    type="text"
+                    placeholder="img/prato7.avif">
+
+            </div>
+
+
+            <div class="input-box full">
+
+                <label>
+                    DESCRIÇÃO
+                </label>
+
+                <textarea
+                    id="novaDescricao"
+                    required
+                    placeholder="Descrição do prato"></textarea>
+
+            </div>
+
+
+            <button type="submit">
+
+                Adicionar prato
+
+            </button>
+
+
+        </form>
+
+    </section>
+
+
+    <section class="admin-section">
+
+        <div class="admin-section-title">
+
+            <h2>
+                Pratos cadastrados
+            </h2>
+
+        </div>
+
+
+        <div
+            id="pratosAdmin"
+            class="admin-pratos">
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer
+    style="margin-top: 5%;width: 100%;"
+    class="footer">
+
+
+    <div class="footer-container">
+
+
+        <div class="footer-col">
+
+            <h3>
+                Sabor Imperial
+            </h3>
+
+            <p>
+                Criado em Angola com dedicação.
+            </p>
+
+
+            <div class="social">
+
+                <a href="#">◎</a>
+                <a href="#">♪</a>
+                <a href="#">☏</a>
+
+            </div>
+
+
+            <small>
+                @Saborimperial
+            </small>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h3>
+                Contacto
+            </h3>
+
+            <p>
+                +244 944 686 993
+            </p>
+
+            <p>
+                Saborimperial@gmail.com
+            </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h3>
+                Horário
+            </h3>
+
+            <p>
+                Domingo a Domingo
+            </p>
+
+            <p>
+                8h00 — 21h00
+            </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h3>
+                Navegar
+            </h3>
+
+            <a href="#">
+                Home
+            </a>
+
+            <a href="#">
+                Sobre nós
+            </a>
+
+            <a href="#">
+                Cardápio
+            </a>
+
+            <a href="#">
+                Reservar Mesa
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Sabor Imperial —
+        Qualidade que se sente.
+
+    </div>
+
+
+</footer>
+
+<script>
+
+/* =====================================================
+   SAIR DO ADMINISTRATIVO
+===================================================== */
+
+function sairAdmin() {
+
+    localStorage.removeItem(
+        "saborimperial_usuario"
+    );
+
+
+    localStorage.removeItem(
+        "saborimperial_admin"
+    );
+
+
+    window.location.replace(
+        "login.html"
+    );
+
+}
+
+
+/* =====================================================
+   CARREGAR PEDIDOS
+===================================================== */
+
+function carregarPedidos() {
+
+    const container =
+        document.getElementById(
+            "pedidosContainer"
+        );
+
+
+    const pedidos =
+        JSON.parse(
+            localStorage.getItem(
+                "saborimperial_pedidos"
+            )
+        ) || [];
+
+
+    container.innerHTML = "";
+
+
+    if (pedidos.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="sem-pedidos">
+
+                <h3>
+                    Nenhum pedido recebido
+                </h3>
+
+                <p>
+                    Os novos pedidos aparecerão aqui.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    pedidos
+        .slice()
+        .reverse()
+        .forEach(pedido => {
+
+
+        const div =
+            document.createElement("div");
+
+
+        div.className =
+            "pedido-admin";
+
+
+        div.innerHTML = `
+
+            <div class="pedido-topo">
+
+                <div>
+
+                    <h3>
+                        ${pedido.prato}
+                    </h3>
+
+                    <small>
+                        Pedido #${pedido.id}
+                    </small>
+
+                </div>
+
+
+                <span
+                    class="estado ${pedido.estado}">
+
+                    ${pedido.estado.toUpperCase()}
+
+                </span>
+
+            </div>
+
+
+            <div class="pedido-info">
+
+                <p>
+                    <strong>Cliente:</strong>
+                    ${pedido.nome}
+                </p>
+
+                <p>
+                    <strong>WhatsApp:</strong>
+                    ${pedido.whatsapp}
+                </p>
+
+                <p>
+                    <strong>Bairro:</strong>
+                    ${pedido.bairro || "Não informado"}
+                </p>
+
+                <p>
+                    <strong>Preço:</strong>
+                    ${pedido.preco}
+                </p>
+
+                <p>
+                    <strong>Quantidade:</strong>
+                    ${pedido.quantidade}
+                </p>
+
+                <p>
+                    <strong>Sobremesa:</strong>
+                    ${pedido.sobremesa || "Nenhuma"}
+                </p>
+
+                <p>
+                    <strong>Observações:</strong>
+                    ${pedido.observacoes || "Nenhuma"}
+                </p>
+
+                <p>
+                    <strong>Data:</strong>
+                    ${pedido.data}
+                </p>
+
+            </div>
+
+
+            ${
+                pedido.estado === "pendente"
+                ?
+
+                `
+
+                <div class="pedido-acoes">
+
+                    <button
+                        onclick="alterarPedido(${pedido.id}, 'aceito')">
+
+                        ✓ Aceitar
+
+                    </button>
+
+
+                    <button
+                        class="recusar"
+                        onclick="alterarPedido(${pedido.id}, 'recusado')">
+
+                        ✕ Recusar
+
+                    </button>
+
+                </div>
+
+                `
+
+                :
+
+                ""
+
+            }
+
+        `;
+
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+/* =====================================================
+   ALTERAR PEDIDO
+===================================================== */
+
+function alterarPedido(id, estado) {
+
+    let pedidos =
+        JSON.parse(
+            localStorage.getItem(
+                "saborimperial_pedidos"
+            )
+        ) || [];
+
+
+    pedidos =
+        pedidos.map(pedido => {
+
+            if (pedido.id === id) {
+
+                pedido.estado = estado;
+
+            }
+
+            return pedido;
+
+        });
+
+
+    localStorage.setItem(
+        "saborimperial_pedidos",
+        JSON.stringify(pedidos)
+    );
+
+
+    carregarPedidos();
+
+}
+
+
+/* =====================================================
+   CARREGAR PRATOS
+===================================================== */
+
+function carregarPratosAdmin() {
+
+    const container =
+        document.getElementById(
+            "pratosAdmin"
+        );
+
+
+    const pratos =
+        JSON.parse(
+            localStorage.getItem(
+                "saborimperial_pratos"
+            )
+        ) || [];
+
+
+    container.innerHTML = "";
+
+
+    pratos.forEach(prato => {
+
+
+        const div =
+            document.createElement("div");
+
+
+        div.className =
+            "admin-prato";
+
+
+        div.innerHTML = `
+
+            <img
+                src="${prato.imagem}"
+                alt="${prato.nome}">
+
+
+            <div>
+
+                <h3>
+                    ${prato.nome}
+                </h3>
+
+                <p>
+                    ${prato.descricao}
+                </p>
+
+                <strong>
+                    ${Number(prato.preco)
+                        .toLocaleString("pt-AO")} Kz
+                </strong>
+
+            </div>
+
+
+            <button
+                class="recusar"
+                onclick="removerPrato(${prato.id})">
+
+                Remover
+
+            </button>
+
+        `;
+
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+/* =====================================================
+   REMOVER PRATO
+===================================================== */
+
+function removerPrato(id) {
+
+    if (
+        !confirm(
+            "Deseja realmente remover este prato?"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    let pratos =
+        JSON.parse(
+            localStorage.getItem(
+                "saborimperial_pratos"
+            )
+        ) || [];
+
+
+    pratos =
+        pratos.filter(
+            prato => prato.id !== id
+        );
+
+
+    localStorage.setItem(
+        "saborimperial_pratos",
+        JSON.stringify(pratos)
+    );
+
+
+    carregarPratosAdmin();
+
+}
+
+
+/* =====================================================
+   ADICIONAR PRATO
+===================================================== */
+
+document
+    .getElementById("formPrato")
+    .addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const prato = {
+
+                id: Date.now(),
+
+                nome:
+                    document
+                        .getElementById("novoNome")
+                        .value
+                        .trim(),
+
+                preco:
+                    Number(
+                        document
+                            .getElementById("novoPreco")
+                            .value
+                    ),
+
+                imagem:
+                    document
+                        .getElementById("novaImagem")
+                        .value
+                        .trim()
+                    ||
+                    "img/prato1.avif",
+
+                descricao:
+                    document
+                        .getElementById("novaDescricao")
+                        .value
+                        .trim()
+
+            };
+
+
+            let pratos =
+                JSON.parse(
+                    localStorage.getItem(
+                        "saborimperial_pratos"
+                    )
+                ) || [];
+
+
+            pratos.push(prato);
+
+
+            localStorage.setItem(
+                "saborimperial_pratos",
+                JSON.stringify(pratos)
+            );
+
+
+            this.reset();
+
+
+            carregarPratosAdmin();
+
+
+            alert(
+                "Prato adicionado ao cardápio!"
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
+
+carregarPedidos();
+
+carregarPratosAdmin();
+
+</script>
+
+
+</body>
+
+</html>

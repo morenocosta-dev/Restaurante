@@ -1,232 +1,514 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
-    <meta name="author"content="Moreno Costa">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0d3b66">
-    <title>pedido</title>
-</head>
-<body>
-    <header>
-     <nav class="navbar">
-       <div class="logo">
-           <h1 style="text-align: center;">Sabor Imperial</a></h1>
-       </div>
+<html lang="pt-br">
 
-       <div class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-       </div>
-       <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="#sobre">Sobre nós</a>
-        <a href="cardapio.html">Cardápio</a>
-        <a id="botao" href="reserva.html">Reservar Mesa</a>
-       </div>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <meta name="author" content="Moreno Costa">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="theme-color" content="#0d3b66">
+
+    <title>Fazer Pedido — Sabor Imperial</title>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <h1 style="text-align:center;">
+                Sabor Imperial
+            </h1>
+
+        </div>
+
+
+        <div class="menu-toggle" id="menuToggle">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <div class="menu">
+
+            <a href="index.html">Home</a>
+            <a href="index.html#sobre">Sobre nós</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="reserva.html">Reservar</a>
+            <a id="botao" href="login.html">Adminisrativo</a>
+
+        </div>
+
     </nav>
+
 </header>
 
 
-<div style="margin-top: 150px;" class="form-container">
+<div style="margin-top:150px;" class="form-container">
 
 
-<div class="title">
+    <div class="title">
 
-<div class="number">1</div>
+        <div class="number">
+            1
+        </div>
 
-<h2>Detalhes do pedido</h2>
+        <h2>
+            Detalhes do pedido
+        </h2>
+
+    </div>
+
+
+    <div class="form-grid">
+
+
+        <div class="input-box">
+
+            <label>
+                NOME COMPLETO *
+            </label>
+
+            <input
+                id="nome"
+                type="text"
+                placeholder="O seu nome"
+                required>
+
+        </div>
+
+
+        <div class="input-box">
+
+            <label>
+                WHATSAPP *
+            </label>
+
+            <input
+                id="whatsapp"
+                type="text"
+                placeholder="+244 9XX XXX XXX"
+                required>
+
+        </div>
+
+
+        <div class="input-box">
+
+            <label>
+                CIDADE / BAIRRO
+            </label>
+
+            <input
+                id="bairro"
+                type="text"
+                placeholder="Luanda, Talatona...">
+
+        </div>
+
+
+        <div class="input-box">
+
+            <label>
+                PRATO
+            </label>
+
+            <input
+                id="prato"
+                type="text"
+                readonly
+                placeholder="Escolha um prato no cardápio">
+
+        </div>
+
+
+        <div class="input-box">
+
+            <label>
+                PREÇO
+            </label>
+
+            <input
+                id="preco"
+                type="text"
+                readonly>
+
+        </div>
+
+
+        <div class="input-box">
+
+            <label>
+                QUANTIDADE
+            </label>
+
+            <input
+                id="quantidade"
+                type="number"
+                min="1"
+                value="1"
+                placeholder="Quantidade">
+
+        </div>
+
+
+        <div class="input-box">
+
+            <label>
+                SOBREMESA
+            </label>
+
+            <input
+                id="sobremesa"
+                type="text"
+                placeholder="Ex: Manga, Banana, Iogurte...">
+
+        </div>
+
+
+        <div class="input-box full">
+
+            <label>
+                OBSERVAÇÕES
+            </label>
+
+            <textarea
+                id="observacoes"
+                placeholder="Alguma preferência especial?">
+            </textarea>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="payment">
+
+
+        <div class="title">
+
+            <div class="number">
+                2
+            </div>
+
+            <h2>
+                Método de pagamento
+            </h2>
+
+        </div>
+
+
+        <div class="payment-box">
+
+            <div class="whatsapp">
+                ☏
+            </div>
+
+            <div>
+
+                <strong>
+                    WhatsApp
+                </strong>
+
+                <p>
+                    Pedido e pagamento por mensagem
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="enviarPedido">
+
+            Enviar pedido pelo WhatsApp
+
+        </button>
+
+
+    </div>
+
 
 </div>
 
 
+<footer
+    style="margin-top:5%;"
+    class="footer">
 
-<div class="form-grid">
 
-
-<div class="input-box">
-
-<label>NOME COMPLETO *</label>
-
-<input type="text" placeholder="O seu nome">
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>WHATSAPP *</label>
-
-<input type="text" placeholder="+244 9XX XXX XXX">
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>CIDADE / BAIRRO</label>
-
-<input type="text" placeholder="Luanda, Talatona...">
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>Prato</label>
-
-<select>
-
-<option>Massa Italiana</option>
-<option>Carne</option>
-<option>Prato Executivo</option>
-<option>Pizza Especial</option>
-<option>Hambúrguer Gourmet</option>
-<option>Salada Tropical</option>
-<option>Arroz com Feijão</option>
-<option>Bife</option>
-</select>
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>Sobremesa</label>
-
-<input type="text" placeholder="Ex: Manga, Banana, Iogurte...">
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>Número de pessoas</label>
-
-<input type="number" placeholder="Ex: 12 unidades">
-
-</div>
-
-
-
-<div class="input-box full">
-
-<label>OBSERVAÇÕES</label>
-
-<textarea placeholder="Alguma preferência especial?"></textarea>
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="payment">
-
-
-<div class="title">
-
-<div class="number">2</div>
-
-<h2>Método de pagamento</h2>
-
-</div>
-
-
-
-<div class="payment-box">
-
-
-<div class="whatsapp">
-
-☏
-
-</div>
-
-
-<div>
-
-<strong>WhatsApp</strong>
-
-<p>Pedido e pagamento por mensagem</p>
-
-</div>
-
-
-</div><a style="text-decoration: none;"href="https://wa.me/244944686993?text=Ol%C3%A1%2C%20tirei%20o%20contacto%20no%20site">
-
-
-<button>
-Enviar pedido pelo WhatsApp
-</button>
-
-
-</div></a>
-
-
-
-</div>
-
-
-
- <footer style="margin-top: 5%;" class="footer">
     <div class="footer-container">
 
+
         <div class="footer-col">
+
             <h3>Sabor Imperial</h3>
-            <p>Criado em Angola com dedicação.</p>
+
+            <p>
+                Criado em Angola com dedicação.
+            </p>
 
             <div class="social">
+
                 <a href="#">◎</a>
                 <a href="#">♪</a>
                 <a href="#">☏</a>
+
             </div>
 
-            <small>@Saborimperial</small>
+            <small>
+                @Saborimperial
+            </small>
+
         </div>
 
 
         <div class="footer-col">
+
             <h3>Contacto</h3>
-            <p>+244 944 686 993</p>
-            <p>Saborimperial@gmail.com</p>
+
+            <p>
+                +244 944 686 993
+            </p>
+
+            <p>
+                Saborimperial@gmail.com
+            </p>
+
         </div>
 
 
         <div class="footer-col">
+
             <h3>Horário</h3>
-            <p>Domingo a Domingo</p>
-            <p>8h00 — 21h00</p>
+
+            <p>
+                Domingo a Domingo
+            </p>
+
+            <p>
+                8h00 — 21h00
+            </p>
+
         </div>
 
 
         <div class="footer-col">
+
             <h3>Navegar</h3>
-            <a href="#">Home</a>
-            <a href="#">Sobre nós</a>
-            <a href="#">Cardápio</a>
-            <a href="#">Reservar Mesa</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#sobre">
+                Sobre nós
+            </a>
+
+            <a href="cardapio.html">
+                Cardápio
+            </a>
+
+            <a href="reserva.html">
+                Reservar Mesa
+            </a>
+
         </div>
+
 
     </div>
 
 
     <div class="copyright">
+
         © 2026 Sabor Imperial — Qualidade que se sente.
+
     </div>
 
 
- <script src="script.js"></script>
+</footer>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+
+const params =
+    new URLSearchParams(window.location.search);
+
+
+const prato =
+    params.get("prato");
+
+const preco =
+    params.get("preco");
+
+
+if (prato) {
+
+    document.getElementById("prato").value =
+        prato;
+
+}
+
+
+if (preco) {
+
+    document.getElementById("preco").value =
+        Number(preco).toLocaleString("pt-AO") + " Kz";
+
+}
+
+
+document
+    .getElementById("enviarPedido")
+    .addEventListener("click", () => {
+
+
+        const nome =
+            document.getElementById("nome").value.trim();
+
+        const whatsapp =
+            document.getElementById("whatsapp").value.trim();
+
+        const bairro =
+            document.getElementById("bairro").value.trim();
+
+        const pratoSelecionado =
+            document.getElementById("prato").value;
+
+        const precoSelecionado =
+            document.getElementById("preco").value;
+
+        const quantidade =
+            document.getElementById("quantidade").value;
+
+        const sobremesa =
+            document.getElementById("sobremesa").value.trim();
+
+        const observacoes =
+            document.getElementById("observacoes").value.trim();
+
+
+        if (!nome || !whatsapp || !pratoSelecionado) {
+
+            alert(
+                "Preencha o nome, WhatsApp e escolha um prato."
+            );
+
+            return;
+
+        }
+
+
+        const pedido = {
+
+            id: Date.now(),
+
+            nome,
+
+            whatsapp,
+
+            bairro,
+
+            prato: pratoSelecionado,
+
+            preco: precoSelecionado,
+
+            quantidade,
+
+            sobremesa,
+
+            observacoes,
+
+            estado: "pendente",
+
+            data:
+                new Date().toLocaleString("pt-AO")
+
+        };
+
+
+        let pedidos =
+            JSON.parse(
+                localStorage.getItem(
+                    "saborimperial_pedidos"
+                )
+            ) || [];
+
+
+        pedidos.push(pedido);
+
+
+        localStorage.setItem(
+            "saborimperial_pedidos",
+            JSON.stringify(pedidos)
+        );
+
+
+        const mensagem =
+
+`Olá, Sabor Imperial!
+
+Quero fazer um pedido.
+
+Nome: ${nome}
+WhatsApp: ${whatsapp}
+Bairro: ${bairro}
+
+Prato: ${pratoSelecionado}
+Preço: ${precoSelecionado}
+Quantidade: ${quantidade}
+
+Sobremesa: ${sobremesa || "Nenhuma"}
+
+Observações:
+${observacoes || "Nenhuma"}
+
+Estado: Pedido enviado para análise.`;
+
+
+        const url =
+            "https://wa.me/244944686993?text=" +
+            encodeURIComponent(mensagem);
+
+
+        window.open(url, "_blank");
+
+
+        alert(
+            "Pedido registrado com sucesso!"
+        );
+
+    });
+
+
+</script>
+
+
 </body>
+
 </html>
