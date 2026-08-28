@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -49,11 +50,29 @@
 
         <div class="menu">
 
-            <a href="index.html">Home</a>
-            <a href="index.html#sobre">Sobre nós</a>
-            <a href="cardapio.html">Cardápio</a>
-            <a href="reserva.html">Reservar</a>
-            <a id="botao" href="login.html">Adminisrativo</a>
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#sobre">
+                Sobre nós
+            </a>
+
+            <a href="cardapio.html">
+                Cardápio
+            </a>
+
+            <a href="reserva.html">
+                Reservar
+            </a>
+
+            <a href="estadoreserva.html">
+                Estado do pedido
+            </a>
+
+            <a id="botao" href="login.html">
+                Administrativo
+            </a>
 
         </div>
 
@@ -62,7 +81,9 @@
 </header>
 
 
-<div style="margin-top:150px;" class="form-container">
+<div
+    style="margin-top:150px;"
+    class="form-container">
 
 
     <div class="title">
@@ -263,7 +284,9 @@
 
         <div class="footer-col">
 
-            <h3>Sabor Imperial</h3>
+            <h3>
+                Sabor Imperial
+            </h3>
 
             <p>
                 Criado em Angola com dedicação.
@@ -271,9 +294,17 @@
 
             <div class="social">
 
-                <a href="#">◎</a>
-                <a href="#">♪</a>
-                <a href="#">☏</a>
+                <a href="#">
+                    ◎
+                </a>
+
+                <a href="#">
+                    ♪
+                </a>
+
+                <a href="#">
+                    ☏
+                </a>
 
             </div>
 
@@ -286,7 +317,9 @@
 
         <div class="footer-col">
 
-            <h3>Contacto</h3>
+            <h3>
+                Contacto
+            </h3>
 
             <p>
                 +244 944 686 993
@@ -301,7 +334,9 @@
 
         <div class="footer-col">
 
-            <h3>Horário</h3>
+            <h3>
+                Horário
+            </h3>
 
             <p>
                 Domingo a Domingo
@@ -316,7 +351,9 @@
 
         <div class="footer-col">
 
-            <h3>Navegar</h3>
+            <h3>
+                Navegar
+            </h3>
 
             <a href="index.html">
                 Home
@@ -332,6 +369,10 @@
 
             <a href="reserva.html">
                 Reservar Mesa
+            </a>
+
+            <a href="estadoreserva.html">
+                Estado do pedido
             </a>
 
         </div>
@@ -356,12 +397,19 @@
 <script>
 
 
+/* =====================================================
+   RECEBER PRATO E PREÇO DO CARDÁPIO
+===================================================== */
+
 const params =
-    new URLSearchParams(window.location.search);
+    new URLSearchParams(
+        window.location.search
+    );
 
 
 const prato =
     params.get("prato");
+
 
 const preco =
     params.get("preco");
@@ -369,115 +417,195 @@ const preco =
 
 if (prato) {
 
-    document.getElementById("prato").value =
-        prato;
+    document.getElementById(
+        "prato"
+    ).value = prato;
 
 }
 
 
 if (preco) {
 
-    document.getElementById("preco").value =
-        Number(preco).toLocaleString("pt-AO") + " Kz";
+    document.getElementById(
+        "preco"
+    ).value =
+        Number(preco).toLocaleString(
+            "pt-AO"
+        ) + " Kz";
 
 }
 
 
+/* =====================================================
+   ENVIAR PEDIDO
+===================================================== */
+
 document
     .getElementById("enviarPedido")
-    .addEventListener("click", () => {
+    .addEventListener(
+        "click",
+        () => {
 
 
-        const nome =
-            document.getElementById("nome").value.trim();
-
-        const whatsapp =
-            document.getElementById("whatsapp").value.trim();
-
-        const bairro =
-            document.getElementById("bairro").value.trim();
-
-        const pratoSelecionado =
-            document.getElementById("prato").value;
-
-        const precoSelecionado =
-            document.getElementById("preco").value;
-
-        const quantidade =
-            document.getElementById("quantidade").value;
-
-        const sobremesa =
-            document.getElementById("sobremesa").value.trim();
-
-        const observacoes =
-            document.getElementById("observacoes").value.trim();
+            const nome =
+                document
+                    .getElementById("nome")
+                    .value
+                    .trim();
 
 
-        if (!nome || !whatsapp || !pratoSelecionado) {
+            const whatsapp =
+                document
+                    .getElementById("whatsapp")
+                    .value
+                    .trim();
 
-            alert(
-                "Preencha o nome, WhatsApp e escolha um prato."
+
+            const bairro =
+                document
+                    .getElementById("bairro")
+                    .value
+                    .trim();
+
+
+            const pratoSelecionado =
+                document
+                    .getElementById("prato")
+                    .value;
+
+
+            const precoSelecionado =
+                document
+                    .getElementById("preco")
+                    .value;
+
+
+            const quantidade =
+                document
+                    .getElementById("quantidade")
+                    .value;
+
+
+            const sobremesa =
+                document
+                    .getElementById("sobremesa")
+                    .value
+                    .trim();
+
+
+            const observacoes =
+                document
+                    .getElementById("observacoes")
+                    .value
+                    .trim();
+
+
+            /* ================================
+               VALIDAR CAMPOS
+            ================================= */
+
+            if (
+                !nome ||
+                !whatsapp ||
+                !pratoSelecionado
+            ) {
+
+                alert(
+                    "Preencha o nome, WhatsApp e escolha um prato."
+                );
+
+                return;
+
+            }
+
+
+            /* ================================
+               CRIAR PEDIDO
+            ================================= */
+
+            const pedido = {
+
+                id: Date.now(),
+
+                nome: nome,
+
+                whatsapp: whatsapp,
+
+                bairro: bairro,
+
+                prato: pratoSelecionado,
+
+                preco: precoSelecionado,
+
+                quantidade: quantidade,
+
+                sobremesa: sobremesa,
+
+                observacoes: observacoes,
+
+                estado: "pendente",
+
+                data:
+                    new Date()
+                        .toLocaleString("pt-AO")
+
+            };
+
+
+            /* ================================
+               BUSCAR PEDIDOS EXISTENTES
+            ================================= */
+
+            let pedidos =
+                JSON.parse(
+                    localStorage.getItem(
+                        "saborimperial_pedidos"
+                    )
+                ) || [];
+
+
+            /* ================================
+               ADICIONAR NOVO PEDIDO
+            ================================= */
+
+            pedidos.push(pedido);
+
+
+            /* ================================
+               GUARDAR PEDIDOS
+            ================================= */
+
+            localStorage.setItem(
+                "saborimperial_pedidos",
+                JSON.stringify(pedidos)
             );
 
-            return;
 
-        }
+            /* ================================
+               GUARDAR ID DO ÚLTIMO PEDIDO
+            ================================= */
 
-
-        const pedido = {
-
-            id: Date.now(),
-
-            nome,
-
-            whatsapp,
-
-            bairro,
-
-            prato: pratoSelecionado,
-
-            preco: precoSelecionado,
-
-            quantidade,
-
-            sobremesa,
-
-            observacoes,
-
-            estado: "pendente",
-
-            data:
-                new Date().toLocaleString("pt-AO")
-
-        };
+            localStorage.setItem(
+                "saborimperial_ultimo_pedido",
+                String(pedido.id)
+            );
 
 
-        let pedidos =
-            JSON.parse(
-                localStorage.getItem(
-                    "saborimperial_pedidos"
-                )
-            ) || [];
+            /* ================================
+               MENSAGEM WHATSAPP
+            ================================= */
 
-
-        pedidos.push(pedido);
-
-
-        localStorage.setItem(
-            "saborimperial_pedidos",
-            JSON.stringify(pedidos)
-        );
-
-
-        const mensagem =
+            const mensagem =
 
 `Olá, Sabor Imperial!
 
 Quero fazer um pedido.
 
+Pedido: #${pedido.id}
+
 Nome: ${nome}
 WhatsApp: ${whatsapp}
-Bairro: ${bairro}
+Bairro: ${bairro || "Não informado"}
 
 Prato: ${pratoSelecionado}
 Preço: ${precoSelecionado}
@@ -491,19 +619,32 @@ ${observacoes || "Nenhuma"}
 Estado: Pedido enviado para análise.`;
 
 
-        const url =
-            "https://wa.me/244944686993?text=" +
-            encodeURIComponent(mensagem);
+            const url =
+                "https://wa.me/244944686993?text=" +
+                encodeURIComponent(
+                    mensagem
+                );
 
 
-        window.open(url, "_blank");
+            /* ================================
+               ABRIR WHATSAPP
+            ================================= */
+
+            window.open(
+                url,
+                "_blank"
+            );
 
 
-        alert(
-            "Pedido registrado com sucesso!"
-        );
+            /* ================================
+               IR PARA ESTADO DO PEDIDO
+            ================================= */
 
-    });
+            window.location.href =
+                "estadoreserva.html";
+
+        }
+    );
 
 
 </script>
@@ -512,3 +653,4 @@ Estado: Pedido enviado para análise.`;
 </body>
 
 </html>
+```

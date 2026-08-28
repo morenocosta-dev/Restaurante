@@ -1,0 +1,844 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <meta
+        name="theme-color"
+        content="#0d3b66">
+
+    <title>
+        Estado da Reserva — Sabor Imperial
+    </title>
+
+
+    <style>
+
+        .estado-container {
+
+            max-width: 850px;
+
+            margin: 150px auto 80px;
+
+            padding: 20px;
+
+        }
+
+
+        .estado-card {
+
+            background: #111;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 0 20px
+                rgba(0,0,0,0.4);
+
+        }
+
+
+        .estado-titulo {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .estado-titulo h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .estado-titulo p {
+
+            opacity: 0.8;
+
+        }
+
+
+        .status {
+
+            text-align: center;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            margin-bottom: 30px;
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+        }
+
+
+        .status.pendente {
+
+            background:
+                rgba(255,193,7,0.15);
+
+            color: #ffc107;
+
+        }
+
+
+        .status.aceito {
+
+            background:
+                rgba(40,167,69,0.15);
+
+            color: #28a745;
+
+        }
+
+
+        .status.recusado {
+
+            background:
+                rgba(220,53,69,0.15);
+
+            color: #dc3545;
+
+        }
+
+
+        .pedido-info {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 15px;
+
+        }
+
+
+        .info-box {
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+        }
+
+
+        .info-box.full {
+
+            grid-column: 1 / -1;
+
+        }
+
+
+        .info-box strong {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .info-box span {
+
+            opacity: 0.85;
+
+        }
+
+
+        .acoes {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-top: 30px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .acoes a {
+
+            text-decoration: none;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+        }
+
+
+        .btn-voltar {
+
+            background: #0d3b66;
+
+            color: white;
+
+        }
+
+
+        .btn-atualizar {
+
+            background: #198754;
+
+            color: white;
+
+            border: none;
+
+            cursor: pointer;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+        }
+
+
+        .sem-pedido {
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+        }
+
+
+        .numero-pedido {
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+            opacity: 0.7;
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .estado-container {
+
+                padding: 15px;
+
+                margin-top: 120px;
+
+            }
+
+
+            .estado-card {
+
+                padding: 20px;
+
+            }
+
+
+            .pedido-info {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .info-box.full {
+
+                grid-column: auto;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <nav class="navbar">
+
+
+        <div class="logo">
+
+            <h1 style="text-align:center;">
+                Sabor Imperial
+            </h1>
+
+        </div>
+
+
+        <div
+            class="menu-toggle"
+            id="menuToggle">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <div class="menu">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#sobre">
+                Sobre nós
+            </a>
+
+            <a href="cardapio.html">
+                Cardápio
+            </a>
+
+            <a href="reserva.html">
+                Reservar
+            </a>
+
+            <a href="estadoreserva.html">
+                Estado do pedido
+            </a>
+
+            <a
+                id="botao"
+                href="login.html">
+
+                Administrativo
+
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main class="estado-container">
+
+
+    <div class="estado-card">
+
+
+        <div class="estado-titulo">
+
+            <h2>
+                Estado do seu pedido
+            </h2>
+
+            <p>
+                Acompanhe aqui o estado da sua reserva.
+            </p>
+
+        </div>
+
+
+        <div id="conteudo">
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+<footer
+    style="margin-top:5%;"
+    class="footer">
+
+
+    <div class="footer-container">
+
+
+        <div class="footer-col">
+
+            <h3>
+                Sabor Imperial
+            </h3>
+
+            <p>
+                Criado em Angola com dedicação.
+            </p>
+
+            <div class="social">
+
+                <a href="#">
+                    ◎
+                </a>
+
+                <a href="#">
+                    ♪
+                </a>
+
+                <a href="#">
+                    ☏
+                </a>
+
+            </div>
+
+            <small>
+                @Saborimperial
+            </small>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h3>
+                Contacto
+            </h3>
+
+            <p>
+                +244 944 686 993
+            </p>
+
+            <p>
+                Saborimperial@gmail.com
+            </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h3>
+                Horário
+            </h3>
+
+            <p>
+                Domingo a Domingo
+            </p>
+
+            <p>
+                8h00 — 21h00
+            </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h3>
+                Navegar
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="cardapio.html">
+                Sobre nós
+            </a>
+
+            <a href="cardapio.html">
+                Cardápio
+            </a>
+
+            <a href="reserva.html">
+                Fazer pedido
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Sabor Imperial —
+        Qualidade que se sente.
+
+    </div>
+
+
+</footer>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+
+/* =====================================================
+   CARREGAR ÚLTIMO PEDIDO
+===================================================== */
+
+function carregarPedido() {
+
+
+    const conteudo =
+        document.getElementById(
+            "conteudo"
+        );
+
+
+    const pedidos =
+        JSON.parse(
+            localStorage.getItem(
+                "saborimperial_pedidos"
+            )
+        ) || [];
+
+
+    /* ================================================
+       VERIFICAR SE EXISTE PEDIDO
+    ================================================= */
+
+    if (pedidos.length === 0) {
+
+        conteudo.innerHTML = `
+
+            <div class="sem-pedido">
+
+                <h3>
+                    Nenhum pedido encontrado
+                </h3>
+
+                <p>
+                    Você ainda não realizou nenhum pedido.
+                </p>
+
+
+                <div class="acoes">
+
+                    <a
+                        href="reserva.html"
+                        class="btn-voltar">
+
+                        Fazer um pedido
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* ================================================
+       PEGAR ID DO ÚLTIMO PEDIDO
+    ================================================= */
+
+    const ultimoId =
+        localStorage.getItem(
+            "saborimperial_ultimo_pedido"
+        );
+
+
+    let pedido;
+
+
+    if (ultimoId) {
+
+        pedido =
+            pedidos.find(
+                item =>
+                    String(item.id) ===
+                    String(ultimoId)
+            );
+
+    }
+
+
+    /* ================================================
+       SE NÃO ENCONTRAR, PEGA O ÚLTIMO
+    ================================================= */
+
+    if (!pedido) {
+
+        pedido =
+            pedidos[pedidos.length - 1];
+
+    }
+
+
+    /* ================================================
+       DEFINIR ESTADO
+    ================================================= */
+
+    let classeEstado =
+        "pendente";
+
+
+    let textoEstado =
+        "🕐 Pedido pendente";
+
+
+    let mensagemEstado =
+        "O seu pedido está aguardando análise do restaurante.";
+
+
+    if (
+        pedido.estado ===
+        "aceito"
+    ) {
+
+        classeEstado =
+            "aceito";
+
+
+        textoEstado =
+            "✅ Pedido aceito";
+
+
+        mensagemEstado =
+            "O seu pedido foi aceito pelo restaurante.";
+
+    }
+
+
+    if (
+        pedido.estado ===
+        "recusado"
+    ) {
+
+        classeEstado =
+            "recusado";
+
+
+        textoEstado =
+            "❌ Pedido recusado";
+
+
+        mensagemEstado =
+            "Infelizmente, o restaurante não pôde aceitar este pedido.";
+
+    }
+
+
+    /* ================================================
+       MOSTRAR PEDIDO
+    ================================================= */
+
+    conteudo.innerHTML = `
+
+
+        <div class="numero-pedido">
+
+            Pedido #${pedido.id}
+
+        </div>
+
+
+        <div class="status ${classeEstado}">
+
+            ${textoEstado}
+
+            <div
+                style="
+                    font-size:14px;
+                    font-weight:normal;
+                    margin-top:8px;
+                ">
+
+                ${mensagemEstado}
+
+            </div>
+
+        </div>
+
+
+        <div class="pedido-info">
+
+
+            <div class="info-box">
+
+                <strong>
+                    Cliente
+                </strong>
+
+                <span>
+                    ${pedido.nome}
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    WhatsApp
+                </strong>
+
+                <span>
+                    ${pedido.whatsapp}
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    Bairro
+                </strong>
+
+                <span>
+                    ${pedido.bairro || "Não informado"}
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    Data do pedido
+                </strong>
+
+                <span>
+                    ${pedido.data}
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    Prato
+                </strong>
+
+                <span>
+                    ${pedido.prato}
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    Preço
+                </strong>
+
+                <span>
+                    ${pedido.preco}
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    Quantidade
+                </strong>
+
+                <span>
+                    ${pedido.quantidade}
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    Sobremesa
+                </strong>
+
+                <span>
+                    ${pedido.sobremesa || "Nenhuma"}
+                </span>
+
+            </div>
+
+
+            <div class="info-box full">
+
+                <strong>
+                    Observações
+                </strong>
+
+                <span>
+                    ${pedido.observacoes || "Nenhuma"}
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="acoes">
+
+
+            <button
+                class="btn-atualizar"
+                onclick="carregarPedido()">
+
+                🔄 Atualizar estado
+
+            </button>
+
+
+            <a
+                href="reserva.html"
+                class="btn-voltar">
+
+                Fazer novo pedido
+
+            </a>
+
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+carregarPedido();
+
+
+</script>
+
+
+</body>
+
+</html>
