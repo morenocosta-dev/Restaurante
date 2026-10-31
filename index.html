@@ -1,1 +1,200 @@
-google-site-verification: googlef8054ca993895aa3.html
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sabor Imperial | Restaurante</title>
+    <meta name="description" content="Descubra o Sabor Imperial: pratos especiais, ingredientes selecionados, atendimento acolhedor e uma experiência gastronómica inesquecível. Consulte o cardápio e faça a sua reserva.">
+    <meta name="author" content="Moreno Costa">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#241a15">
+    <link rel="canonical" href="https://saborimperial.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sabor Imperial | Restaurante">
+    <meta property="og:description" content="Sabores especiais, tradição e criatividade em cada prato.">
+    <meta property="og:url" content="https://saborimperial.vercel.app/">
+
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" aria-label="Navegação principal">
+            <div class="logo">
+                <h1>Sabor Imperial</h1>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" type="button"
+                    aria-label="Abrir menu" aria-expanded="false"
+                    aria-controls="menuPrincipal">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="menu" id="menuPrincipal">
+                <a href="index.html">Home</a>
+                <a href="#sobre">Sobre nós</a>
+                <a href="cardapio.html">Cardápio</a>
+                <a id="botao" href="reserva.html">Reservar mesa</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Destaque principal -->
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <small>UMA EXPERIÊNCIA INESQUECÍVEL</small>
+                <h1>Sabor que conta <span>histórias.</span></h1>
+                <p>
+                    Descubra uma combinação perfeita entre ingredientes
+                    selecionados, criatividade e tradição em cada prato.
+                </p>
+                <a href="reserva.html" class="btn">Reservar uma mesa</a>
+            </div>
+        </section>
+
+        <!-- Pratos em destaque -->
+        <section class="menu-section" id="menu">
+            <div class="section-title">
+                <p>O NOSSO MENU</p>
+                <h2>Pratos especiais</h2>
+            </div>
+
+            <div class="menu-grid">
+                <article class="card">
+                    <img loading="lazy" src="img/prato1.avif" alt="Salada Mediterrânea">
+                    <div class="card-content">
+                        <h3>Salada Mediterrânea</h3>
+                        <p>Folhas frescas, tomate, queijo, azeitonas e molho especial da casa.</p>
+                        <span class="price">8.500 Kz</span>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img loading="lazy" src="img/pra2.avif" alt="Filé grelhado com legumes">
+                    <div class="card-content">
+                        <h3>Filé Grelhado</h3>
+                        <p>Filé suculento grelhado, acompanhado de legumes e molho artesanal.</p>
+                        <span class="price">18.500 Kz</span>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img loading="lazy" src="img/pra3.avif" alt="Massa artesanal">
+                    <div class="card-content">
+                        <h3>Massa Artesanal</h3>
+                        <p>Massa fresca preparada diariamente com molho cremoso e ervas.</p>
+                        <span class="price">12.000 Kz</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="center-button">
+                <a href="cardapio.html" class="btn">Ver cardápio completo</a>
+            </div>
+        </section>
+
+        <!-- Sobre o restaurante -->
+        <section id="sobre" class="about-section">
+            <div class="about">
+                <div class="about-image">
+                    <img loading="lazy" src="rest.avif" alt="Espaço e ambiente do Sabor Imperial">
+                </div>
+
+                <div class="about-content">
+                    <span>A NOSSA HISTÓRIA</span>
+                    <h2>Mais do que uma refeição.</h2>
+                    <p>
+                        O Sabor Imperial nasceu da paixão por transformar
+                        bons ingredientes em momentos especiais.
+                    </p>
+                    <p>
+                        A nossa cozinha combina técnicas modernas com sabores
+                        tradicionais, criando pratos pensados para surpreender.
+                    </p>
+                    <p>
+                        Venha conhecer o nosso espaço e desfrute de uma
+                        experiência gastronómica preparada com carinho.
+                    </p>
+                    <a class="sob" href="cardapio.html">Conheça o nosso menu</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Convite para reservar -->
+        <section class="reservation-cta">
+            <h2>Uma ocasião especial merece uma boa mesa.</h2>
+            <p>Faça a sua reserva e venha viver uma experiência no Sabor Imperial.</p>
+            <a href="reserva.html" class="btn">Reservar agora</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Sabor Imperial</h3>
+                <p>Criado em Angola com dedicação.</p>
+                <div class="social">
+                    <a href="#" aria-label="Instagram">◎</a>
+                    <a href="#" aria-label="TikTok">♪</a>
+                    <a href="#" aria-label="WhatsApp">☏</a>
+                </div>
+                <small>@Saborimperial</small>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <p>+244 944 686 993</p>
+                <p>Saborimperial@gmail.com</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Horário</h3>
+                <p>Domingo a Domingo</p>
+                <p>8h00 — 21h00</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Navegar</h3>
+                <a href="index.html">Home</a>
+                <a href="#sobre">Sobre nós</a>
+                <a href="cardapio.html">Cardápio</a>
+                <a href="reserva.html">Reservar mesa</a>
+                <a href="estadoreserva.html">Estado da reserva</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2026 Sabor Imperial — Qualidade que se sente.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggle = document.getElementById("menuToggle");
+            const menu = document.getElementById("menuPrincipal");
+
+            if (!toggle || !menu) return;
+
+            toggle.addEventListener("click", function () {
+                const aberto = menu.classList.toggle("ativo");
+                toggle.classList.toggle("ativo", aberto);
+                toggle.setAttribute("aria-expanded", String(aberto));
+                toggle.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+            });
+
+            menu.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    menu.classList.remove("ativo");
+                    toggle.classList.remove("ativo");
+                    toggle.setAttribute("aria-expanded", "false");
+                    toggle.setAttribute("aria-label", "Abrir menu");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
